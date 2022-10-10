@@ -8,7 +8,7 @@ import lightMode from "./assets/icons/light-mode.svg"
 
 const Header = ({ themeMode, toggleDarkMode, children }) => {
   return (
-    <div className={style.header}>
+    <header className={style.header}>
       <h1>Notes</h1>
       <div className={style['search-wrapper']}>
         {children}
@@ -19,7 +19,7 @@ const Header = ({ themeMode, toggleDarkMode, children }) => {
       >
         <img src={themeMode ? darkMode : lightMode} alt="" />
       </button>
-    </div>
+    </header>
   );
 };
 

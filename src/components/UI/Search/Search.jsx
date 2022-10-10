@@ -9,10 +9,10 @@ const Search = ({ searhQuery, handleSearchNote }) => {
     <div className={style.search}>
       <MdSearch className="search-icons" size={"1.3em"} />
       <input
-        type="search"
+        type="text"
         placeholder="Type to search..."
         value={searhQuery}
-        onChange={(e) => handleSearchNote(e.target.value)}
+        onChange={(e) => handleSearchNote(e.target.value)}        
       />
     </div>
   );

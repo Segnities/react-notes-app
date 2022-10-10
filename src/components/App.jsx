@@ -35,14 +35,12 @@ function App() {
 
   return (
     <div className={`app mode-${darkMode ? "light" : "dark"}`}>
-        <header>
           <Header themeMode={darkMode} toggleDarkMode={setDarkMode}>
             <Search
               searhQuery={searchQuery}
               handleSearchNote={setSearchQuery}
             />
           </Header>
-        </header>
         <main></main>
     </div>
   );
