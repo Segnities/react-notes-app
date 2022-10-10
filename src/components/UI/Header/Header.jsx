@@ -1,14 +1,26 @@
-import React from 'react';
+import React from "react";
 
-const Header = ({toggleDarkMode}) => {
-    return (
-        <div className='header'>
-            <h1>Notes</h1>
-            <button>
-                
-            </button>
-        </div>
-    );
+import style from "./assets/css/Header.module.css";
+
+import darkMode from "./assets/icons/dark-mode.svg"
+import lightMode from "./assets/icons/light-mode.svg"
+
+
+const Header = ({ themeMode, toggleDarkMode, children }) => {
+  return (
+    <header className={style.header}>
+      <h1>Notes</h1>
+      <div className={style['search-wrapper']}>
+        {children}
+      </div>
+      <button
+        onClick={() => toggleDarkMode(!themeMode)}
+        className={style["save-mode"]}
+      >
+        <img src={themeMode ? darkMode : lightMode} alt="" />
+      </button>
+    </header>
+  );
 };
 
 export default Header;
