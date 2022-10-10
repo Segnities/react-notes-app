@@ -7,6 +7,7 @@ import Search from "./UI/Search/Search";
 import NoteList from "./NoteList";
 
 import "../styles/App.css";
+import { useSaveNotes } from "./hooks/useSaveNotes";
 
 function App() {
   const [notes, setNotes] = useState([
@@ -50,18 +51,7 @@ function App() {
     setNotes(filtredNotes);
   }
 
-  useEffect(() => {
-    localStorage.setItem("notes-data", JSON.stringify(notes));
-    const savedNotes = JSON.parse(localStorage.getItem("notes-data"));
-
-    if (savedNotes) {
-      setNotes(savedNotes);
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("notes-data", JSON.stringify(notes));
-  }, [notes]);
+  useSaveNotes(notes, setNotes);
 
   return (
     <div className={`app mode-${darkMode ? "light" : "dark"}`}>
