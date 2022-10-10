@@ -1,49 +1,70 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { nanoid } from "nanoid";
 
-import "../styles/App.css";
 import Header from "./UI/Header/Header";
 import Search from "./UI/Search/Search";
+import NoteList from "./NoteList";
+
+import "../styles/App.css";
+import { useSaveNotes } from "./hooks/useSaveNotes";
 
 function App() {
-  const [nodes, setNodes] = [
+  const [notes, setNotes] = useState([
     {
       id: nanoid(),
       body: "This is my fist node!",
-      date: "1/10/2022",
+      date: "01.10.2022",
     },
     {
       id: nanoid(),
       body: "This is my second node!",
-      date: "4/10/2022",
+      date: "04.10.2022",
     },
     {
       id: nanoid(),
       body: "This is my third node!",
-      date: "7/04/2022",
+      date: "07.04.2022",
     },
     {
       id: nanoid(),
       body: "This is my fourth node!",
-      date: "9/04/2022",
+      date: "09.04.2022",
     },
-  ];
+  ]);
 
   const [searchQuery, setSearchQuery] = useState("");
   const [darkMode, setDarkMode] = useState(false);
 
+  function addNote(text) {
+    const date = new Date();
+    const newNote = {
+      id: nanoid(),
+      body: text,
+      date: date.toLocaleDateString(),
+    };
+    setNotes([...notes, newNote]);
+  }
+
+  function removeNote(id) {
+    const filtredNotes = [...notes].filter((note) => note.id !== id);
+    setNotes(filtredNotes);
+  }
+
+  useSaveNotes(notes, setNotes);
+
   return (
     <div className={`app mode-${darkMode ? "light" : "dark"}`}>
-          <Header themeMode={darkMode} toggleDarkMode={setDarkMode}>
-            <Search
-              searhQuery={searchQuery}
-              handleSearchNote={setSearchQuery}
-            />
-          </Header>
-        <main>
-          
-        </main>
+      <Header themeMode={darkMode} toggleDarkMode={setDarkMode}>
+        <Search searhQuery={searchQuery} handleSearchNote={setSearchQuery} />
+      </Header>
+      <main className="notes-container">
+        <NoteList
+          notes={notes}
+          handleAddNote={addNote}
+          handleRemoveNote={removeNote}
+        />
+      </main>
     </div>
   );
 }

@@ -2,6 +2,8 @@ import React from "react";
 
 import Note from "./Note";
 
+import '../styles/Notes.css';
+
 const NoteList = ({ notes, handleAddNote, handleRemoveNote }) => {
   return (
     <div className="note-list">

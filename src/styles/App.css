@@ -13,3 +13,11 @@
   background-color: #303030;
 }
 
+.notes-container {
+  max-width: 960px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: 15px;
+	padding-left: 15px;
+  margin-top: 50px;
+}
