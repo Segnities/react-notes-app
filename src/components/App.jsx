@@ -41,7 +41,9 @@ function App() {
               handleSearchNote={setSearchQuery}
             />
           </Header>
-        <main></main>
+        <main>
+          
+        </main>
     </div>
   );
 }

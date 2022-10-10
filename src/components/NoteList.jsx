@@ -1,13 +1,20 @@
-import React from 'react';
+import React from "react";
 
-const NoteList = ({notes, handleAddNote, handleRemoveNote}) => {
-    return (
-        <div className='note-list'>
-            {
-                notes.map()
-            }
-        </div>
-    );
+import Note from "./Note";
+
+const NoteList = ({ notes, handleAddNote, handleRemoveNote }) => {
+  return (
+    <div className="note-list">
+      {notes.map((note) => (
+        <Note
+          key={note.id}
+          body={note.body}
+          date={note.date}
+          handleRemoveNote={handleRemoveNote}
+        />
+      ))}
+    </div>
+  );
 };
 
 export default NoteList;
