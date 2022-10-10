@@ -1,1 +1,18 @@
-.app-light {}
+.app {
+  min-height: 100vh;
+}
+
+.mode-light {
+  transition: all 0.5s ease-in-out;
+  background-color: whitesmoke;
+}
+
+.mode-dark {
+  transition: all 0.5s ease-in-out;
+  background-color: #303030;
+}
+
+
+.header {
+  width: 100%;
+}

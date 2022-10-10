@@ -1,0 +1,18 @@
+.search {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 30px;
+    padding: 5px 10px;
+}
+
+.search input {
+    width: 100%;
+    padding: 3px;
+    border: none;
+    background-color: #fff;
+}
+
+.searh input:focus,:focus-visible {
+    outline: none;
+}

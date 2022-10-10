@@ -2,9 +2,11 @@ import React from "react";
 
 import { MdSearch } from "react-icons/md";
 
+import style from "./assets/css/Search.module.css";
+
 const Search = ({ searhQuery, handleSearchNote }) => {
   return (
-    <div className="search">
+    <div className={style.search}>
       <MdSearch className="search-icons" size={"1.3em"} />
       <input
         type="search"
