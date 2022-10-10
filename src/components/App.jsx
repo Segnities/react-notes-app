@@ -34,7 +34,7 @@ function App() {
 
 
     return (
-        <div className={`app-${darkMode ? 'dark' : 'light'}`}>
+        <div className={`app mode-${darkMode ? 'dark' : 'light'}`}>
             <div className={'note-wrapper'}>
 
             </div>
