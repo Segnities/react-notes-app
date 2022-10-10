@@ -58,7 +58,7 @@ function App() {
       <Header themeMode={darkMode} toggleDarkMode={setDarkMode}>
         <Search searhQuery={searchQuery} handleSearchNote={setSearchQuery} />
       </Header>
-      <main>
+      <main className="notes-container">
         <NoteList
           notes={notes}
           handleAddNote={addNote}
