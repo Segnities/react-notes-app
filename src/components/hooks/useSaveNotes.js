@@ -1,4 +1,3 @@
-import { nanoid } from "nanoid";
 import { useEffect } from "react";
 
 export function useSaveNotes(notes, setNotes) {

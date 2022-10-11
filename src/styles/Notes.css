@@ -2,7 +2,6 @@
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-
 }
 
 .note {
@@ -57,15 +56,13 @@
   cursor: pointer;
 }
 
-
 @keyframes noteAppereance {
   from {
     opacity: 0;
     margin-left: 300px;
-  } to {
+  }
+  to {
     opacity: 1;
     margin-left: 0;
   }
 }
-
-
