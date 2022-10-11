@@ -3,6 +3,7 @@ import React from "react";
 import Note from "./Note";
 
 import '../styles/Notes.css';
+import AddNote from "./AddNote";
 
 const NoteList = ({ notes, handleAddNote, handleRemoveNote }) => {
   return (
@@ -15,6 +16,7 @@ const NoteList = ({ notes, handleAddNote, handleRemoveNote }) => {
           handleRemoveNote={handleRemoveNote}
         />
       ))}
+      <AddNote handleAddNote={handleAddNote}/>
     </div>
   );
 };
