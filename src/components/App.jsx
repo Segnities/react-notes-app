@@ -9,29 +9,10 @@ import NoteList from "./NoteList";
 import "../styles/App.css";
 import { useSaveNotes } from "./hooks/useSaveNotes";
 
+import { getNotes } from "./utils/getNotes";
+
 function App() {
-  const [notes, setNotes] = useState([
-    {
-      id: nanoid(),
-      body: "This is my fist node!",
-      date: "01.10.2022",
-    },
-    {
-      id: nanoid(),
-      body: "This is my second node!",
-      date: "04.10.2022",
-    },
-    {
-      id: nanoid(),
-      body: "This is my third node!",
-      date: "07.04.2022",
-    },
-    {
-      id: nanoid(),
-      body: "This is my fourth node!",
-      date: "09.04.2022",
-    },
-  ]);
+  const [notes, setNotes] = useState(getNotes());
 
   const [searchQuery, setSearchQuery] = useState("");
   const [darkMode, setDarkMode] = useState(false);
@@ -51,6 +32,17 @@ function App() {
     setNotes(filtredNotes);
   }
 
+  function searchNote() {
+    const filtred = [...notes].filter((note) =>
+      note.body.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    return filtred.length === 0 ? notes : filtred;
+  }
+
+  useEffect(() => {
+    searchNote();
+  }, [searchQuery]);
+
   useSaveNotes(notes, setNotes);
 
   return (
@@ -60,7 +52,7 @@ function App() {
       </Header>
       <main className="notes-container">
         <NoteList
-          notes={notes}
+          notes={searchNote()}
           handleAddNote={addNote}
           handleRemoveNote={removeNote}
         />

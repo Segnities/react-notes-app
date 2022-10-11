@@ -11,6 +11,7 @@ const AddNote = ({ handleAddNote }) => {
 
   function handleSaveNote() {
     handleAddNote(noteText);
+    setNoteText("");
   }
 
   return (
