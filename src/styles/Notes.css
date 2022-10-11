@@ -27,6 +27,10 @@
   color: red;
 }
 
+.new-note {
+  background-color: #67d7cc;
+}
+
 .new-note textarea {
   border: none;
   resize: none;
@@ -38,10 +42,10 @@
 }
 
 .save-note {
-    background-color: #e1e1e1;
-    border: none;
-    border-radius: 15px;
-    padding: 5px 10px 5px 10px;
+  background-color: #e1e1e1;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px 5px 10px;
 }
 
 .save-note:hover {
