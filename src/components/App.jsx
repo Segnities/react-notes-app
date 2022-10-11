@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useMemo, useState } from "react";
 
 import { nanoid } from "nanoid";
 
@@ -16,6 +16,12 @@ function App() {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [darkMode, setDarkMode] = useState(false);
+  const filtredNotes = useMemo(() => {
+    const filtred = [...notes].filter((note) =>
+      note.body.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    return filtred.length === 0 ? notes : filtred;
+  }, [searchQuery]);
 
   function addNote(text) {
     const date = new Date();
@@ -31,18 +37,6 @@ function App() {
     const filtredNotes = [...notes].filter((note) => note.id !== id);
     setNotes(filtredNotes);
   }
-
-  function searchNote() {
-    const filtred = [...notes].filter((note) =>
-      note.body.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    return filtred.length === 0 ? notes : filtred;
-  }
-
-  useEffect(() => {
-    searchNote();
-  }, [searchQuery]);
-
   useSaveNotes(notes, setNotes);
 
   return (
@@ -52,7 +46,7 @@ function App() {
       </Header>
       <main className="notes-container">
         <NoteList
-          notes={searchNote()}
+          notes={filtredNotes}
           handleAddNote={addNote}
           handleRemoveNote={removeNote}
         />
